@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Game</title>
+    <link rel="stylesheet" href="matchgame.css">
+    <script defer src="matchgame.js"></script>
+</head>
+<body>
+    <h1>Memory Match Game</h1>
+    <p>Select a Category:</p>
+    <button onclick="selectCategory('fruits')">Fruits</button>
+    <button onclick="selectCategory('animals')">Animals</button>
+    <button onclick="selectCategory('cartoons')">Cartoons</button>
+    
+    <div id="timeOptions" style="display: none;">
+        <p>Select Time:</p>
+        <button onclick="startGame(30)">30 sec</button>
+        <button onclick="startGame(60)">60 sec</button>
+        <button onclick="startGame(80)">80 sec</button>
+        <button onclick="startGame(120)">120 sec</button>
+    </div>
+    
+    <p>Time Left: <span id="timer"></span> sec</p>
+    <div class="game-container" id="gameBoard"></div>
+    
+    <div id="message-box">
+        <p id="win-message">You Win!</p>
+        <p id="lose-message">Oops! You Lose!</p>
+    </div>
