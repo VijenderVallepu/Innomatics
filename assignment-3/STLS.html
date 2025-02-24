@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Light</title>
+</head>
+<body>
+    <h2>Traffic Light Timing</h2>
+    <label>Traffic Density:</label>
+    <select id="density">
+        <option value="Heavy Traffic">Heavy</option>
+        <option value="Moderate Traffic">Moderate</option>
+        <option value="Light Traffic">Light</option>
+    </select><br><br>
+    <button onclick="checkTrafficLight()">Check Timing</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function trafficLightControl(density) {
+            return density === "Heavy Traffic" ? 60 : density === "Moderate Traffic" ? 40 : 20;
+        }
+
+        function checkTrafficLight() {
+            let density = document.getElementById("density").value;
+            document.getElementById("result").innerText = `Green light duration: ${trafficLightControl(density)} seconds`;
+        }
+    </script>
+</body>
+</html>

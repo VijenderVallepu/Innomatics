@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Coupon</title>
+</head>
+<body>
+    <h2>Apply Coupon Code</h2>
+    <label>Order Amount ($):</label> <input type="number" id="orderAmount"><br><br>
+    <label>Coupon Code:</label>
+    <select id="coupon">
+        <option value="none">None</option>
+        <option value="DISCOUNT10">DISCOUNT10</option>
+        <option value="FREESHIP">FREESHIP</option>
+    </select><br><br>
+    <button onclick="applyCoupon()">Apply</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function applyCoupon(orderAmount, couponCode) {
+            if (couponCode === "DISCOUNT10" && orderAmount > 500) return orderAmount * 0.9;
+            if (couponCode === "FREESHIP" && orderAmount > 200) return orderAmount;
+            return orderAmount;
+        }
+
+        function applyCoupon() {
+            let orderAmount = parseFloat(document.getElementById("orderAmount").value);
+            let couponCode = document.getElementById("coupon").value;
+            document.getElementById("result").innerText = `Final Price: $${applyCoupon(orderAmount, couponCode).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

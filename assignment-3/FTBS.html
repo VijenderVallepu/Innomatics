@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Ticket Price</title>
+</head>
+<body>
+    <h2>Calculate Flight Ticket Price</h2>
+    <label>Class Type:</label>
+    <select id="classType">
+        <option value="Economy">Economy</option>
+        <option value="Business">Business</option>
+        <option value="First Class">First Class</option>
+    </select><br><br>
+    <label>Luggage Weight (kg):</label> <input type="number" id="luggage"><br><br>
+    <label>Student?</label> <input type="checkbox" id="student"><br><br>
+    <label>Senior Citizen?</label> <input type="checkbox" id="senior"><br><br>
+    <button onclick="calculateFare()">Calculate</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateFlightFare(classType, luggageWeight, isStudent, isSenior) {
+            let price = 300 + (classType === "Business" ? 200 : classType === "First Class" ? 500 : 0);
+            price += Math.max(0, Math.floor((luggageWeight - 20) / 10)) * 50;
+            let discount = isStudent ? 0.15 : isSenior ? 0.1 : 0;
+            return price * (1 - discount);
+        }
+
+        function calculateFare() {
+            let classType = document.getElementById("classType").value;
+            let luggage = parseFloat(document.getElementById("luggage").value);
+            let isStudent = document.getElementById("student").checked;
+            let isSenior = document.getElementById("senior").checked;
+            document.getElementById("result").innerText = `Final Fare: $${calculateFlightFare(classType, luggage, isStudent, isSenior).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

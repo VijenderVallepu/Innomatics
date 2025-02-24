@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill</title>
+</head>
+<body>
+    <h2>Calculate Electricity Bill</h2>
+    <label>Units Consumed:</label> <input type="number" id="units"><br><br>
+    <label>Time of Day (24hr format):</label> <input type="number" id="time"><br><br>
+    <button onclick="calculateBill()">Calculate</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateElectricityBill(units, timeOfDay) {
+            let rate = units > 300 ? 3 : units > 100 ? 4 : 5;
+            let total = units * rate;
+            if (timeOfDay >= 20 || timeOfDay < 8) total *= 1.1;
+            return total;
+        }
+
+        function calculateBill() {
+            let units = parseFloat(document.getElementById("units").value);
+            let timeOfDay = parseFloat(document.getElementById("time").value);
+            document.getElementById("result").innerText = `Total Bill: $${calculateElectricityBill(units, timeOfDay).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

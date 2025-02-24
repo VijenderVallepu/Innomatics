@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+</head>
+<body>
+    <h2>Calculate Final Amount</h2>
+    <label>Order Amount ($):</label> <input type="number" id="orderAmount"><br><br>
+    <button onclick="calculateAmount()">Calculate</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateFinalAmount(orderAmount) {
+            let discount = orderAmount > 1000 ? 0.2 : orderAmount >= 500 ? 0.1 : 0;
+            let total = orderAmount * (1 - discount);
+            total += total > 50 ? 0 : 10;
+            return `Final Amount: $${total.toFixed(2)}`;
+        }
+
+        function calculateAmount() {
+            let orderAmount = parseFloat(document.getElementById("orderAmount").value);
+            document.getElementById("result").innerText = calculateFinalAmount(orderAmount);
+        }
+    </script>
+</body>
+</html>
