@@ -1,0 +1,19 @@
+[
+    {
+      "role": "Frontend Development Intern",
+      "organisation": "Innomatics Research Labs",
+      "startDate": "february, 2025",
+      "endDate": "March,2025",
+      "experiences": ["Developed responsive and interactive web pages. "],
+      "imageSrc": "history/google.png"
+    },
+    {
+      "role": "Backend Development Intern ",
+      "organisation": "Innomatics Research Labs",
+      "startDate": "March,2025",
+      "endDate": "",
+      "experiences": ["(Ongoing)"],
+      "imageSrc": "history/google.png"
+    }
+ 
+  ]
